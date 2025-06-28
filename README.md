@@ -1,3 +1,4 @@
+````markdown
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -12,7 +13,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
@@ -20,17 +21,45 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Real-time Collaboration (Yjs + Hocuspocus + WebRTC)
+
+To enable full collaborative editing, you need to launch two signaling servers before starting your app:
+
+1. **Hocuspocus WebSocket Server**
+
+   ```bash
+   # in one terminal window
+   # runs on ws://localhost:8888 by default
+   npx hocuspocus --port 8888
+   ```
+
+2. **WebRTC Signaling Server**
+
+   ```powershell
+   # in another terminal window (PowerShell)
+   # ensure you’re at your project root
+   $env:PORT = 4444
+   node node_modules\y-webrtc\bin\server.js
+   ```
+
+   > On Windows PowerShell use `$env:PORT = 4444` before running `node …` so the WebRTC server listens on port 4444.
+
+Once both servers are up and running, start your Next.js app (`npm run dev`) and navigate to `http://localhost:3000`. You’ll be able to invite others (or open a second browser tab) and see real-time cursor and content synchronization powered by Yjs.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* [Next.js Documentation](https://nextjs.org/docs) – learn about Next.js features and API.
+* [Learn Next.js](https://nextjs.org/learn) – an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) – your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+```
+```
