@@ -19,11 +19,33 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing-fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+
+## Configuration
+
+1. **API Key**
+   Create a `.env.local` file at the project root with your OpenAI API key:
+
+   ```env
+   OPENAI_API_KEY="your-openai-api-key-here"
+   ```
+
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
 
 ## Real-time Collaboration (Yjs + Hocuspocus + WebRTC)
 
-To enable full collaborative editing, you need to launch two signaling servers before starting your app:
+To enable full collaborative editing, launch two signaling servers before starting your app:
 
 1. **Hocuspocus WebSocket Server**
 
@@ -42,9 +64,7 @@ To enable full collaborative editing, you need to launch two signaling servers b
    node node_modules\y-webrtc\bin\server.js
    ```
 
-   > On Windows PowerShell use `$env:PORT = 4444` before running `node …` so the WebRTC server listens on port 4444.
-
-Once both servers are up and running, start your Next.js app (`npm run dev`) and navigate to `http://localhost:3000`. You’ll be able to invite others (or open a second browser tab) and see real-time cursor and content synchronization powered by Yjs.
+Once both servers are running, start your Next.js app (`npm run dev`) and navigate to `http://localhost:3000`. You’ll be able to invite others (or open a second browser tab) and see real-time cursor and content synchronization powered by Yjs.
 
 ## Learn More
 
@@ -60,6 +80,10 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+```
+```
+
 
 ```
 ```
